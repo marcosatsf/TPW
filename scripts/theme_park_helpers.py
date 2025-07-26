@@ -18,6 +18,7 @@ def get_disney_park_data(park_id, park_name):
         raise Exception(f"There's was a problem when calling API! HTTP status code = {req.status_code}")
     else:
         data = req.json()
+        data['extracted_at'] = int(datetime.now().timestamp())
         print(data)
 
     with open(json_filename, 'a') as f:
@@ -33,7 +34,7 @@ def run_get_data(config_track, datetime):
 
 def calculate_schedule_from_datetime(current_datetime: datetime):
     ho, mi = current_datetime.hour, current_datetime.minute
-    print(f'Current time [UTC]: {ho}h{mi}')
+    print(f'Current time [UTC]: {ho:02}h{mi:02}')
     if not 1 < ho < 12:
         return "*/5 * * * *"
     else:
