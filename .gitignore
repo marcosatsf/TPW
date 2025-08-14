@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+environments/pyspark_env/metrics_data/
+environments/pyspark_env/workspace/raw_layer/
+environments/pyspark_env/workspace/datalake_layer/
+environments/pyspark_env/workspace/initial_load/
+scripts/recovered/

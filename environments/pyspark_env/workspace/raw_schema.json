@@ -1,0 +1,441 @@
+{
+    "type": "struct",
+    "fields": [
+        {
+            "name": "entityType",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "extracted_at",
+            "type": "long",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "forecast",
+            "type": {
+                "type": "array",
+                "elementType": {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "name": "percentage",
+                            "type": "long",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "time",
+                            "type": "timestamp",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "waitTime",
+                            "type": "long",
+                            "nullable": true,
+                            "metadata": {}
+                        }
+                    ]
+                },
+                "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "id",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "lastUpdated",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "liveData",
+            "type": {
+                "type": "array",
+                "elementType": {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "name": "diningAvailability",
+                            "type": {
+                                "type": "array",
+                                "elementType": {
+                                    "type": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "partySize",
+                                            "type": "long",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "waitTime",
+                                            "type": "long",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        }
+                                    ]
+                                },
+                                "containsNull": true
+                            },
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "entityType",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "forecast",
+                            "type": {
+                                "type": "array",
+                                "elementType": {
+                                    "type": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "percentage",
+                                            "type": "long",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "time",
+                                            "type": "timestamp",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "waitTime",
+                                            "type": "long",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        }
+                                    ]
+                                },
+                                "containsNull": true
+                            },
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "id",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "lastUpdated",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "operatingHours",
+                            "type": {
+                                "type": "array",
+                                "elementType": {
+                                    "type": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "endTime",
+                                            "type": "timestamp",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "startTime",
+                                            "type": "timestamp",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "string",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        }
+                                    ]
+                                },
+                                "containsNull": true
+                            },
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "parkId",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "queue",
+                            "type": {
+                                "type": "struct",
+                                "fields": [
+                                    {
+                                        "name": "PAID_RETURN_TIME",
+                                        "type": {
+                                            "type": "struct",
+                                            "fields": [
+                                                {
+                                                    "name": "price",
+                                                    "type": {
+                                                        "type": "struct",
+                                                        "fields": [
+                                                            {
+                                                                "name": "amount",
+                                                                "type": "long",
+                                                                "nullable": true,
+                                                                "metadata": {}
+                                                            },
+                                                            {
+                                                                "name": "currency",
+                                                                "type": "string",
+                                                                "nullable": true,
+                                                                "metadata": {}
+                                                            },
+                                                            {
+                                                                "name": "formatted",
+                                                                "type": "string",
+                                                                "nullable": true,
+                                                                "metadata": {}
+                                                            }
+                                                        ]
+                                                    },
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                },
+                                                {
+                                                    "name": "returnEnd",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                },
+                                                {
+                                                    "name": "returnStart",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                },
+                                                {
+                                                    "name": "state",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                }
+                                            ]
+                                        },
+                                        "nullable": true,
+                                        "metadata": {}
+                                    },
+                                    {
+                                        "name": "RETURN_TIME",
+                                        "type": {
+                                            "type": "struct",
+                                            "fields": [
+                                                {
+                                                    "name": "returnEnd",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                },
+                                                {
+                                                    "name": "returnStart",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                },
+                                                {
+                                                    "name": "state",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                }
+                                            ]
+                                        },
+                                        "nullable": true,
+                                        "metadata": {}
+                                    },
+                                    {
+                                        "name": "SINGLE_RIDER",
+                                        "type": {
+                                            "type": "struct",
+                                            "fields": [
+                                                {
+                                                    "name": "waitTime",
+                                                    "type": "string",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                }
+                                            ]
+                                        },
+                                        "nullable": true,
+                                        "metadata": {}
+                                    },
+                                    {
+                                        "name": "STANDBY",
+                                        "type": {
+                                            "type": "struct",
+                                            "fields": [
+                                                {
+                                                    "name": "waitTime",
+                                                    "type": "long",
+                                                    "nullable": true,
+                                                    "metadata": {}
+                                                }
+                                            ]
+                                        },
+                                        "nullable": true,
+                                        "metadata": {}
+                                    }
+                                ]
+                            },
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "showtimes",
+                            "type": {
+                                "type": "array",
+                                "elementType": {
+                                    "type": "struct",
+                                    "fields": [
+                                        {
+                                            "name": "endTime",
+                                            "type": "timestamp",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "startTime",
+                                            "type": "timestamp",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        },
+                                        {
+                                            "name": "type",
+                                            "type": "string",
+                                            "nullable": true,
+                                            "metadata": {}
+                                        }
+                                    ]
+                                },
+                                "containsNull": true
+                            },
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "status",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        }
+                    ]
+                },
+                "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "name",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "operatingHours",
+            "type": {
+                "type": "array",
+                "elementType": {
+                    "type": "struct",
+                    "fields": [
+                        {
+                            "name": "endTime",
+                            "type": "string",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "startTime",
+                            "type": "timestamp",
+                            "nullable": true,
+                            "metadata": {}
+                        },
+                        {
+                            "name": "type",
+                            "type": "timestamp",
+                            "nullable": true,
+                            "metadata": {}
+                        }
+                    ]
+                },
+                "containsNull": true
+            },
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "parkId",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "queue",
+            "type": {
+                "type": "struct",
+                "fields": [
+                    {
+                        "name": "STANDBY",
+                        "type": {
+                            "type": "struct",
+                            "fields": [
+                                {
+                                    "name": "waitTime",
+                                    "type": "long",
+                                    "nullable": true,
+                                    "metadata": {}
+                                }
+                            ]
+                        },
+                        "nullable": true,
+                        "metadata": {}
+                    }
+                ]
+            },
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "status",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        },
+        {
+            "name": "timezone",
+            "type": "string",
+            "nullable": true,
+            "metadata": {}
+        }
+    ]
+}

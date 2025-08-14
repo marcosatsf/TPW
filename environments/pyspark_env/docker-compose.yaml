@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres:13.2
+    ports:
+      - "5439:5432"
+    hostname: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_DB: "themeparkwizard"
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PW}"
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+      - ./metrics_data:/var/lib/postgresql/data
+      - ./init-scripts:/docker-entrypoint-initdb.d
+    restart: always # Ensure the container restarts if it fails
+
+  pyspark-notebook:
+    build: .
+    container_name: pyspark-notebook
+    environment:
+      POSTGRES_USER: "${POSTGRES_USER}"
+      POSTGRES_PASSWORD: "${POSTGRES_PW}"
+    ports:
+      - "9999:8888"
+      - "4040:4040"
+      - "4041:4041"
+    volumes:
+      - ./workspace:/home/jovyan/work
+    restart: always # Ensure the container restarts if it fails
