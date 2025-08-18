@@ -1,8 +1,7 @@
 FROM jupyter/pyspark-notebook:x86_64-spark-3.5.0
 
 RUN pip install jupyterlab-execute-time
-RUN pip install prophet
-RUN pip install holidays
+RUN pip install prophet==1.1.7
 LABEL authors="Marcos Aurélio"
 
 ENTRYPOINT ["start-notebook.sh", "--NotebookApp.token=''"]
