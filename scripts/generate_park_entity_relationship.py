@@ -2,6 +2,7 @@ import requests
 import json
 from collections import defaultdict
 import locale
+API_KEY = ''
 
 park_name = [
     "WaltDisneyWorldMagicKingdom",
@@ -32,7 +33,7 @@ for park in park_name:
         detail = requests.post('https://places.googleapis.com/v1/places:searchText',
                           json={"textQuery": f"{entity.get('name')}, {park_meta.get('name')}, US"},
                           headers={"Content-Type": "application/json",
-                                   "X-Goog-Api-Key": 'API_KEY',
+                                   "X-Goog-Api-Key": API_KEY,
                                    "X-Goog-FieldMask": "places.displayName,places.rating"}).json()
         print(detail)
         try:

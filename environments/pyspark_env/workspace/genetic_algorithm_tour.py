@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 def fitness_function(individual, predicted_map, allele_map, init_t):
     time_now = init_t
     sum_fitness = 0
+    trigger_inf_rand = False
     # e.g: time_now : [(0.9786283937096293, 10.0),
     #                  (3.0059052871456076, 50.0),
     #                  (0.8060600673978527, 10.0),
@@ -24,12 +25,18 @@ def fitness_function(individual, predicted_map, allele_map, init_t):
             continue
 
         try:
-            # print(time_now, allele_map[e][1], predicted_map[time_now][allele_map[last_node][1]][allele_map[e][1]])
-            weight_result, time_passed = predicted_map[time_now][allele_map[last_node][1]][allele_map[e][1]]
-        except KeyError:
-            weight_result, time_passed = math.inf, 60*24*10
+            if trigger_inf_rand:
+                weight_result, time_passed = math.inf, 10*24*60
+            else:
+                weight_result, time_passed = predicted_map[time_now][allele_map[last_node][1]][allele_map[e][1]]
+        except (KeyError, IndexError) as err:
+            print(err)
+            print(predicted_map[time_now], allele_map[last_node][1], allele_map[e][1])
+            raise Exception
         sum_fitness += weight_result
         time_now += timedelta(minutes=time_passed)
+        if sum_fitness == math.inf:
+            trigger_inf_rand = True
         last_node = e
     return sum_fitness
 
@@ -75,21 +82,6 @@ def create_individual(code_map):
     return random.sample(code_map, k=len(code_map))
 
 
-# Crossover operation
-# def crossover(parent1, parent2):
-#     point = random.randint(1, len(parent1) - 1)
-#     child1 = parent1[:point] + parent2[point:]
-#     child2 = parent2[:point] + parent1[point:]
-#     return child1, child2
-
-# Mutation operation
-# def mutate(individual, mutation_rate):
-#     for i in range(len(individual)):
-#         if random.random() < mutation_rate:
-#             individual[i] = 1 - individual[i]
-#     return individual
-
-
 # Selection operation: Elitism
 def selection(fitnesses:list, n_th: int):
     n_th_value = sorted(fitnesses)[n_th]
@@ -105,7 +97,7 @@ def genetic_algorithm(pop_size, num_generations, allele_map, predicted_map, cros
     initial_time = min([t for t in predicted_map.keys()])
     print(initial_time)
     population = [create_individual(code_map_list) for _ in range(pop_size)]
-    print(population)
+    # print(population)
     for generation in range(num_generations):
         # Evaluate fitness
         fitnesses = [fitness_function(ind, predicted_map, allele_map, initial_time) for ind in population]
@@ -137,11 +129,10 @@ def genetic_algorithm(pop_size, num_generations, allele_map, predicted_map, cros
 
         # Print best individual in the current generation
         best_fitness = selection(fitnesses, 0)
-        print(fitnesses, best_fitness, population, sep=' | ')
         best_individual = population[best_fitness]
         print(f"Generation {generation+1}:")
         print(f"Best Fitness to f(r, q, d) = {best_fitness}")
         print(f"Best individual is {best_individual}")
 
     # Return best individual and its fitness
-    return best_individual, best_fitness
+    return best_individual, best_fitness, initial_time
