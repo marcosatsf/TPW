@@ -131,7 +131,7 @@ def genetic_algorithm(pop_size, num_generations, allele_map, predicted_map, cros
         best_fitness = selection(fitnesses, 0)
         best_individual = population[best_fitness]
         print(f"Generation {generation+1}:")
-        print(f"Best Fitness to f(r, q, d) = {best_fitness}")
+        print(f"Best Fitness to f(r, q, d) = {float(best_fitness)}")
         print(f"Best individual is {best_individual}")
 
     # Return best individual and its fitness
