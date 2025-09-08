@@ -21,6 +21,6 @@ TPW offers 4 main metrics, designed to provide comprehensive and robust planning
 
 ![Predicted queue times](assets/predicted.png)
 
-- Optimized Route: The core feature that generates a personalized and optimized itinerary for your day. It suggests the an optimal order and time to visit attractions, aiming to maximize the number of rides and shows you can experience.
+- Optimized Route: The core feature that generates a personalized and optimized itinerary for your day, based on a genetic algorithm, it uses an heuristically function to reach an optimal order and time to visit attractions, aiming to maximize the number of rides and shows you can experience.
 
 ![Optimal route on predicted values](assets/optimal_route.png)
