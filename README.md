@@ -1,4 +1,4 @@
-# TPW
+# TPW - Theme Park Wizard 🧙‍♂️🐭🪄
 Theme Park Wizard is here to help you on your journey!
 
 ## Project Overview
